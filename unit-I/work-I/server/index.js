@@ -11,9 +11,8 @@ app.use(express.json())
 app.post("/celsius-to-fahrenheit", (req, res) => {
     const { value } = req.body
     const result = (Number(value) * (9/5)) + 32
-    console.log(result)
     const data = JSON.stringify({
-        result: result + ' F'
+        result: result.toFixed(2)
     })
     res.json(data)
 })
@@ -21,9 +20,8 @@ app.post("/celsius-to-fahrenheit", (req, res) => {
 app.post("/fahrenheit-to-celsius", (req, res) => {
     const { value } = req.body
     const result = (Number(value) - 32) * (5/9)
-    console.log(result)
     const data = JSON.stringify({
-        result: result + ' °C'
+        result: result.toFixed(2) 
     })
     res.json(data)
 })
@@ -31,9 +29,8 @@ app.post("/fahrenheit-to-celsius", (req, res) => {
 app.post("/celsius-to-kelvin", (req, res) => {
     const { value } = req.body
     const result = Number(value) + 273.15
-    console.log(result)
     const data = JSON.stringify({
-        result: result + ' K'
+        result: result.toFixed(2)
     })
     res.json(data)
 })
@@ -41,9 +38,8 @@ app.post("/celsius-to-kelvin", (req, res) => {
 app.post("/kelvin-to-celsius", (req, res) => {
     const { value } = req.body
     const result = Number(value) - 273.15
-    console.log(result)
     const data = JSON.stringify({
-        result: result + ' °C'
+        result: result.toFixed(2) 
     })
     res.json(data)
 })
@@ -51,9 +47,8 @@ app.post("/kelvin-to-celsius", (req, res) => {
 app.post("/fahrenheit-to-kelvin", (req, res) => {
     const { value } = req.body
     const result = (Number(value) - 32) * (5/9) + 273.15
-    console.log(result)
     const data = JSON.stringify({
-        result: result + ' K'
+        result: result.toFixed(2)
     })
     res.json(data)
 })
@@ -61,9 +56,8 @@ app.post("/fahrenheit-to-kelvin", (req, res) => {
 app.post("/kelvin-to-fahrenheit", (req, res) => {
     const { value } = req.body
     const result = ((Number(value) - 273.15) * (9/5)) + 32
-    console.log(result)
     const data = JSON.stringify({
-        result: result + ' F'
+        result: result.toFixed(2)
     })
     res.json(data)
 })

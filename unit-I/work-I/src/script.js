@@ -1,3 +1,4 @@
+// putting the HTML tags into JS variables
 const conversion = document.getElementById('conversion')
 const button = document.getElementById('btn')
 const form = document.getElementsByTagName('form')[0]
@@ -6,42 +7,38 @@ const inputUnit = document.getElementById('input-unit')
 const resultUnit = document.getElementById('result-unit')
 const result = document.getElementById('result')
 
-
+// variables to communicate with the server
 const port = 3303
 const host = `http://localhost:${port}`
 
-button.onclick = getResult
+// responding to events
+form.onsubmit = getResult
 conversion.onchange = setUnit
 
-form.addEventListener("submit", function (event) {
-    event.preventDefault()
-})
+// using fetch to reach the result
+function getResult(event) {
+    event.preventDefault() // prevents the page from reloading after the form submit
+    const path = `${host}/${conversion.value}`
 
-function getResult() {
-    if (conversion.value === 'default') {
-        return window.alert("Choose a conversion option!")
-    } else {
-        const path = `${host}/${conversion.value}`
+    const value = JSON.stringify({
+        value: input.value
+    })
 
-        const value = JSON.stringify({
-            value: input.value
-        })
-
-        fetch(path, {
-            method: 'POST',
-            body: value,
-            headers: {
-                'Content-Type': 'application/json; charset=UTF-8'
-            },
-            mode: 'cors'
-        })
-            .then(response => response.json())
-            .then(json => JSON.parse(json))
-            .then(data => data.result)
-            .then(res => result.innerHTML = res)
-    }
+    fetch(path, {
+        method: 'POST',
+        body: value,
+        headers: {
+            'Content-Type': 'application/json; charset=UTF-8'
+        },
+        mode: 'cors'
+    })
+        .then(response => response.json())
+        .then(json => JSON.parse(json))
+        .then(data => data.result)
+        .then(res => result.innerHTML = res)
 }
 
+// sets the input and result temperature unit
 function setUnit() {
     switch (conversion.value) {
         case ("celsius-to-fahrenheit"):
@@ -71,6 +68,7 @@ function setUnit() {
         default:
             break
     }
-    result.innerHTML = ''
+    result.innerHTML = null
+    input.value.innerHTML = null
 }
 

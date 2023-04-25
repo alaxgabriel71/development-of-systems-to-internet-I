@@ -4,34 +4,28 @@
 }
 
 body {
-    background-color: #1a1a1a;
     height: 100vh;
     width: 100vw;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
+    background-color: #1a1a1a;
     color: #fafafa;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .container {
-    width: 100%;
-    height: 100%;
-    min-width: 350px;
-    max-width: 900px;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    width: 100%;
+    height: 100%;
+    min-width: 360px;
+    max-width: 900px;
 }
 
 h1 {
-    color: #fafafa;
-    margin-bottom: 5rem;
     text-align: center;
+    margin-bottom: 5rem;
+    color: #fafafa;
 }
 
 .content {
@@ -62,18 +56,18 @@ select {
     align-items: center;
     justify-content: center;
     width: 100%;
-    margin-bottom: .5rem;
-    background-color: #383838;
-    font-weight: bold;
-    transition: 0.5s;
-    box-shadow: 0 0 1rem -1rem #f09819;
-    background-image: linear-gradient(45deg, #FF512F 0%, #F09819 51%, #FF512F 100%);
-    color: #fafafa;
     padding: 1rem 2rem;
+    margin-bottom: .5rem;
     border-color: none;
     border-radius: .6rem;
     cursor: pointer;
     outline: none;
+    transition: 0.5s;
+    background-color: #383838;
+    background-image: linear-gradient(45deg, #FF512F 0%, #F09819 51%, #FF512F 100%);
+    box-shadow: 0 0 1rem -1rem #f09819;
+    color: #fafafa;
+    font-weight: bold;
 }
 
 label {
@@ -86,29 +80,29 @@ label {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    border: none;
-    font-size: 5rem;
     width: 100%;
     height: 80%;
     padding: 1rem;
-    background-color: #383838;
-    color: #fafafa;
+    border: none;
     border-radius: .6rem;
+    background-color: #383838;
     box-shadow: rgb(50, 50, 50) 3px 3px 6px 0px inset, rgba(150, 150, 150, 0.5) -3px -3px 6px 1px inset;
+    color: #fafafa;
+    font-size: 5rem;
 }
 
 input {
-    background-color: #383838;
-    box-shadow: none;
+    height: 100%;
+    max-width: 90%;
+    min-width: 50%;
+    text-align: center;
     outline: none;
     border: none;
-    color: #fafafa;
     font-size: 3rem;
-    text-align: center;
-    height: 100%;
-    min-width: 50%;
-    max-width: 90%;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: #383838;
+    box-shadow: none;
+    color: #fafafa;
+    font-family: inherit;
 }
 
 input:focus {
@@ -118,15 +112,13 @@ input:focus {
 #input-unit {
     font-size: 3rem;
     font-weight: 100;
-    width: auto;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: inherit;
 }
 
 #result-unit {
     font-size: 3rem;
     font-weight: 100;
-    width: auto;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: inherit;   
 }
 
 label,
@@ -134,13 +126,6 @@ input,
 button,
 .result-area {
     display: block;
-}
-
-#result {
-    height: 80%;
-    width: 90%;
-    margin: .25rem;
-    text-align: center;
 }
 
 #result-title {
@@ -152,30 +137,37 @@ button,
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    background-color: #383838;
-    box-shadow: rgb(50, 50, 50) 3px 3px 6px 0px inset, rgba(150, 150, 150, 0.5) -3px -3px 6px 1px inset;
-    border-radius: .6rem;
     padding: .5rem;
     height: 80%;
     width: 100%;
+    border-radius: .6rem;
+    background-color: #383838;
+    box-shadow: rgb(50, 50, 50) 3px 3px 6px 0px inset, rgba(150, 150, 150, 0.5) -3px -3px 6px 1px inset;
     font-size: 3rem;
+}
+
+#result {
+    height: 80%;
+    width: 90%;
+    margin: .25rem;
+    text-align: center;
 }
 
 button {
     min-width: 25%;
     margin: 1rem;
     padding: 1rem 2rem;
-    text-transform: uppercase;
-    transition: 0.5s;
-    background-size: 200%;
-    color: white;
     border-radius: .6rem;
-    border: 0px;
-    font-weight: 700;
-    box-shadow: 0 0 1rem -1rem #f09819;
-    background-image: linear-gradient(45deg, #FF512F 0%, #F09819 51%, #FF512F 100%);
+    border: 0rem;
     cursor: pointer;
     touch-action: manipulation;
+    transition: 0.5s;
+    background-size: 200%;
+    background-image: linear-gradient(45deg, #FF512F 0%, #F09819 51%, #FF512F 100%);
+    box-shadow: 0 0 1rem -1rem #f09819;
+    color: white;
+    font-weight: 700;
+    text-transform: uppercase;
 }
 
 button:hover {

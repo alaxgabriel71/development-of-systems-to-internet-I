@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@mui/material';
+import NavBar from '../components/NavBar';
 
-const HomePage = ({ socket, setSocket }) => {
+const HomePage = ({ socket, setSocket, name, email }) => {
     const [clientsCount, setClientsCount] = useState(0);
     
     useEffect(() => {
@@ -23,12 +24,12 @@ const HomePage = ({ socket, setSocket }) => {
 
     return (
         <div>
+            <NavBar name={name} email={email} />
             <h1>Bem-vindo à Página Inicial</h1>
-            <p>Este é um exemplo de aplicativo de pesquisa em tempo real.</p>
-            <Button component={Link} to="/questions" variant="contained">
+            <p>Este é um aplicativo de pesquisa em tempo real.</p>
+            <Button component={Link} to="/questions" variant="outlined" color="secondary">
                 Começar
             </Button>
-            <p>Clientes conectados: {clientsCount}</p>
         </div>
     );
 };

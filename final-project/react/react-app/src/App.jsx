@@ -9,16 +9,18 @@ import SignIn from './pages/SignIn';
 
 function App() {
   const [socket, setSocket] = useState(null)
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
 
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Login socket={socket} setSocket={sock => setSocket(sock)} />} />
-          <Route path="/home" element={<HomePage socket={socket} setSocket={sock => setSocket(sock)} />} />
-          <Route path="/questions" element={<QuestionsPage socket={socket} />} />
-          <Route path="/charts" element={<ChartsPage socket={socket} />} />
-          <Route path="/signin" element={<SignIn setSocket={sock => setSocket(sock)} />} />
+          {/* <Route path="/" element={<Login socket={socket} setSocket={sock => setSocket(sock)} />} /> */}
+          <Route path="/início" element={<HomePage socket={socket} setSocket={sock => setSocket(sock)} name={name} email={email} />} />
+          <Route path="/formulário" element={<QuestionsPage name={name} email={email} socket={socket} />} />
+          <Route path="/gráficos" element={<ChartsPage socket={socket} name={name} email={email} />} />
+          <Route path="/" element={<SignIn setSocket={sock => setSocket(sock)} name={name} email={email} setName={name => setName(name)} setEmail={email => setEmail(email)}/>} />
         </Routes>
       </BrowserRouter>
     </div>

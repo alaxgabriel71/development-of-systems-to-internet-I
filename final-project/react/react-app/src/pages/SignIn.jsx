@@ -19,7 +19,7 @@ function Copyright(props) {
     return (
         <Typography variant="body2" color="text.secondary" align="center" {...props}>
             {'Copyright © '}
-            <Link color="inherit" href="https://github.com/alaxgabriel71">
+            <Link color="inherit" href="https://github.com/alaxgabriel71" target="_blank">
                 @alaxgabriel71
             </Link>{' '}
             {new Date().getFullYear()}
@@ -32,19 +32,10 @@ function Copyright(props) {
 
 const defaultTheme = createTheme();
 
-export default function SignIn({ setSocket }) {
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
+export default function SignIn({ setSocket, name, email, setName, setEmail }) {
+    /* const [name, setName] = useState('');
+    const [email, setEmail] = useState(''); */
     const navigate = useNavigate();
-
-    /* const handleSubmit = (event) => {
-        event.preventDefault();
-        const data = new FormData(event.currentTarget);
-        console.log({
-            email: data.get('email'),
-            password: data.get('password'),
-        });
-    }; */
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -56,7 +47,7 @@ export default function SignIn({ setSocket }) {
         aux.emit('submitForm', { name, email });
 
         // setSubmitted(true);
-        navigate("/home");
+        navigate("/início");
     };
 
     return (
@@ -88,6 +79,8 @@ export default function SignIn({ setSocket }) {
                             id="name"
                             // autoComplete="current-password"
                             color="secondary"
+                            autoFocus
+                            onChange={event => setName(event.target.value)}
                         />
                         <TextField
                             margin="normal"
@@ -97,8 +90,8 @@ export default function SignIn({ setSocket }) {
                             label="Email Address"
                             name="email"
                             autoComplete="email"
-                            autoFocus
                             color="secondary"
+                            onChange={event => setEmail(event.target.value)}
                         />
                         <Button
                             type="submit"

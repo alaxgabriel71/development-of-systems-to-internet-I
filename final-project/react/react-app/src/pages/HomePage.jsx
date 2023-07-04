@@ -2,12 +2,17 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@mui/material';
 
-const HomePage = ({ socket }) => {
+const HomePage = ({ socket, setSocket }) => {
     const [clientsCount, setClientsCount] = useState(0);
     
     useEffect(() => {
         socket.on('clientsCount', (count) => {
             setClientsCount(count);
+        });
+
+        socket.on('socketUpdate', (newSocket) => {
+            setSocket(newSocket);
+            console.log(newSocket)
         });
 
         /* return () => {

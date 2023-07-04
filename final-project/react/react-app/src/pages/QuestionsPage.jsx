@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button, FormControlLabel, Radio, RadioGroup } from '@mui/material';
-import { io } from 'socket.io-client';
+//import { io } from 'socket.io-client';
 
-const socket = io('http://localhost:3001');
+//const socket = io('http://localhost:3001');
 
-const QuestionsPage = () => {
+const QuestionsPage = ({ socket }) => {
   const navigate = useNavigate();
   const [selectedAnswers, setSelectedAnswers] = useState([]);
+
+  console.log(socket);
 
   const handleRadioChange = (questionIndex, answer) => {
     const updatedAnswers = [...selectedAnswers];

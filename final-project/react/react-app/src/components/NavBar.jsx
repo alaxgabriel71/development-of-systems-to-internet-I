@@ -48,7 +48,7 @@ function NavBar({ name, email }) {
             variant="h6"
             noWrap
             component="a"
-            onClick={() => navigate("/home")}
+            onClick={() => navigate("/início")}
             // href="/"
             sx={{
               mr: 2,
@@ -105,7 +105,7 @@ function NavBar({ name, email }) {
             noWrap
             component="a"
             // href=""
-            onClick={() => navigate("/home")}
+            onClick={() => navigate("/início")}
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },

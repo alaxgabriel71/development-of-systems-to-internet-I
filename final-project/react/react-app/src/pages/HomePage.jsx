@@ -27,7 +27,7 @@ const HomePage = ({ socket, setSocket, name, email }) => {
             <NavBar name={name} email={email} />
             <h1>Bem-vindo à Página Inicial</h1>
             <p>Este é um aplicativo de pesquisa em tempo real.</p>
-            <Button component={Link} to="/questions" variant="outlined" color="secondary">
+            <Button component={Link} to="/formulário" variant="outlined" color="secondary">
                 Começar
             </Button>
         </div>

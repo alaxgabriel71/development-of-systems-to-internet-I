@@ -18,7 +18,7 @@ function App() {
         <Routes>
           {/* <Route path="/" element={<Login socket={socket} setSocket={sock => setSocket(sock)} />} /> */}
           <Route path="/início" element={<HomePage socket={socket} setSocket={sock => setSocket(sock)} name={name} email={email} />} />
-          <Route path="/formulário" element={<QuestionsPage name={name} email={email} socket={socket} />} />
+          <Route path="/formulário" element={<QuestionsPage name={name} email={email} />} />
           <Route path="/gráficos" element={<ChartsPage socket={socket} name={name} email={email} />} />
           <Route path="/" element={<SignIn setSocket={sock => setSocket(sock)} name={name} email={email} setName={name => setName(name)} setEmail={email => setEmail(email)}/>} />
         </Routes>

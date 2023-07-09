@@ -62,6 +62,14 @@ app.get("/result", (req, res) => {
   return res.status(200).json({ result });
 });
 
+app.post("/answers", (req, res) => {
+  const { selectedAnswers } = req.body;
+  result.push(selectedAnswers);
+  console.log('respostas', result);
+  io.emit('responsesData', result);
+  return res.status(200).json({ message: "Answers saved successfully! "});
+});
+
 server.listen(3001, () => {
   console.log('Servidor WebSocket iniciado na porta 3001');
 });

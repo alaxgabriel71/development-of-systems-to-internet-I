@@ -19,13 +19,8 @@ const ChartsPage = ({ name, email }) => {
 
   useEffect(() => {
     socket.on('responsesData', (data) => {
-      setRefresh(!refresh);
-      console.log(data);
+      setResult(data);
     });
-    
-    /* return () => {
-      socket.disconnect();
-    }; */
   }, [socket]);
 
 
